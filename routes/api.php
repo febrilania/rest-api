@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +21,8 @@ use Illuminate\Validation\ValidationException;
 */
 
 
-use Carbon\Carbon;
-use Laravel\Sanctum\PersonalAccessToken;
-use Illuminate\Support\Facades\DB;
 
-Route::post('/login', function (Request $request) {
+Route::post('/getToken', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
         'password' => 'required',
